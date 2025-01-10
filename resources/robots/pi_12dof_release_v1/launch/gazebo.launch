@@ -1,0 +1,40 @@
+<launch>
+	<arg name="wname" default="normal" />
+	<arg name="paused" default="true" />
+	<arg name="use_sim_time" default="true" />
+	<arg name="gui" default="true" />
+	<arg name="headless" default="false" />
+	<arg name="debug" default="false" />
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(find unitree_gazebo)/worlds/$(arg wname).world" />
+		<arg name="debug" value="$(arg debug)" />
+		<arg name="gui" value="$(arg gui)" />
+		<arg name="paused" value="$(arg paused)" />
+		<arg name="use_sim_time" value="$(arg use_sim_time)" />
+		<arg name="headless" value="$(arg headless)" />
+	</include>
+	<param name="robot_description" textfile="$(find pi_12dof_release_v1)/urdf/pi_12dof_release_v1.urdf" />
+	<node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen" args="-urdf 
+          -z 0.3453
+          -x 0.0
+          -P 0.0
+          -J l_hip_pitch_joint -0.25
+          -J l_calf_joint 0.65
+          -J l_ankle_pitch_joint -0.4
+          -J r_hip_pitch_joint -0.25
+          -J r_calf_joint 0.65
+          -J r_ankle_pitch_joint -0.4
+          -model pi_12dof_release_v1 -param robot_description " />
+	<!-- <rosparam file="$(find pi_12dof_release_v1)/config/robot_control.yaml" command="load" /> -->
+	<!-- load the controllers -->
+	<!-- <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false" output="screen" ns="/pi_12dof_release_v1" args="joint_state_controller
+        l_hip_pitch_controller l_hip_roll_controller l_thigh_controller l_calf_controller 
+        l_ankle_pitch_controller 
+        l_ankle_roll_controller
+        r_hip_pitch_controller r_hip_roll_controller r_thigh_controller r_calf_controller 
+        r_ankle_pitch_controller 
+        r_ankle_roll_controller
+        " /> -->
+	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" respawn="false" output="screen">
+	</node>
+</launch>

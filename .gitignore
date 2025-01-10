@@ -1,0 +1,12 @@
+.vscode
+logs
+videos
+wandb
+humanoid/__pycache__
+humanoid/algo/__pycache__
+humanoid/algo/ppo/__pycache__
+humanoid/envs/__pycache__
+humanoid/envs/base/__pycache__
+humanoid/envs/pai/__pycache__
+humanoid/utils/__pycache__
+livelybot_rl_control.egg-info
