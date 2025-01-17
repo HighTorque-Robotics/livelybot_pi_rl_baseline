@@ -1,5 +1,5 @@
 # Pi_rl_baseline
-English| [中文](README_zh.md)
+English| [中文](README.md)
 
 This work provides a reinforcement learning environment based on NVIDIA Isaac Gym. For Gaoqing Mechatronics' bipedal robot Pi, Pi_rl_baseline also integrates the sim2sim framework from Isaac Gym to Mujoco, allowing users to verify the trained strategies in different physical simulations.
 

@@ -1,5 +1,5 @@
 # Pi_rl_baseline
-[English](README.md) | 中文
+[English](README_EN.md) | 中文
 
 该工作提供了一个基于 NVIDIA Isaac Gym 的强化学习环境，对于高擎机电的双足机器人 Pi， Pi_rl_baseline 还整合了从 Isaac Gym 到 Mujoco 的sim2sim框架，使用户能够在不同的物理模拟中验证训练得到的策略
 
