@@ -1,4 +1,5 @@
 .vscode
+.csv
 logs
 videos
 wandb
